@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:04:33 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/21 18:14:12 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/23 22:31:41 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,35 @@ typedef struct s_struct
 t_struct	*new_node(int value);
 t_struct	*list_last(t_struct *node);
 void		add_back(t_struct **head, t_struct *node);
+void		add_front(t_struct **head, t_struct *node);
+t_struct	*remove_front(t_struct **head);
 
 void	free_list(t_struct **list);
 
-void rotate(t_struct **stack);
+int get_size(t_struct *stack);
+t_struct	*assign_index(t_struct *stack, int index);
+t_struct	*split_arg(char *s);
+
+void swap(t_struct **stack, int c);
+void rotate(t_struct **stack, int c);
+void reverse_rotate(t_struct **stack, int c);
+
+void	push(t_struct **src, t_struct **des, int c);
+void	smart_push(t_struct **stack_a, t_struct **stack_b, int	size);
+
+int is_sorted(t_struct *stack);
+int	check_index(t_struct *stack, int half);
+
+int	check_arg(char *arg);
+
+void	sort_three(t_struct **stack);
+
+void	set_position(t_struct **stack);
+void	calc_target_pos(t_struct *node, t_struct **stack_a);
+void	set_target_pos(t_struct **stack_b, t_struct **stack_a);
+
+
+void print_result(t_struct *stack_a, t_struct *stack_b);
+void print_no_free(t_struct *stack_a, t_struct *stack_b);
 
 #endif

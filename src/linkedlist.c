@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 21:28:51 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/21 16:22:21 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/23 18:02:42 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_struct	*list_last(t_struct *node)
 
 void	add_back(t_struct **head, t_struct *node)
 {
-	t_struct *tmp;
+	t_struct	*tmp;
 
 	if (!(*head))
 	{
@@ -48,4 +48,28 @@ void	add_back(t_struct **head, t_struct *node)
 		tmp = list_last(*head);
 		tmp->next = node;
 	}
+}
+
+void	add_front(t_struct **head, t_struct *node)
+{
+	if (!(*head))
+	{
+		*head = node;
+		return ;
+	}
+	else
+	{
+		node->next = *head;
+		*head = node;
+	}
+}
+
+t_struct	*remove_front(t_struct **head)
+{
+	t_struct	*tmp;
+
+	tmp = *head;
+	*head = tmp->next;
+	tmp->next = NULL;
+	return (tmp);
 }
