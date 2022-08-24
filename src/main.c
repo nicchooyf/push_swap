@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 16:55:09 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/23 22:34:23 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 00:49:19 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ int	main(int ac, char **av)
 	stack_a = assign_index(stack_a, size + 1);
 	if (!stack_a)
 		return (ft_printf("Invalid arguments given\n"));
-	smart_push(&stack_a, &stack_b, size);
-	sort_three(&stack_a);
-	set_target_pos(&stack_a, &stack_b);
-	print_result(stack_a, stack_b);
+	do_sort(&stack_a, &stack_b, size);
+	// print_result(stack_a, stack_b);
 	// system("leaks push_swap");
 }

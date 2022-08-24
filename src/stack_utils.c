@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:01:37 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/23 18:49:25 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/24 16:19:33 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ int	get_size(t_struct *stack)
 }
 
 /*
- *	Assigns (sorted) index to members of the stack
+ *	Assigns indices to members of the stack as if they 
+ *	were sorted. 
  *
- *	Also checks for duplicates whilst
+ *	Stack: [-49] [0] [9] [5] [-5]
+ *	Index:  [1]  [3] [5] [4] [2]
+ *
+ *	Also checks for duplicates.
  */
 t_struct	*assign_index(t_struct *stack, int index)
 {

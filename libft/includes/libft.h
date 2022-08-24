@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 09:44:55 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/08 12:07:13 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/24 13:42:06 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>

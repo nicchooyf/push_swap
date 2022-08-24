@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linkedlist.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 21:28:51 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/23 18:02:42 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/24 16:14:46 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_struct	*new_node(int value)
 	new->index = 0;
 	new->pos = 0;
 	new->target_pos = 0;
+	new->cost_a = 0;
+	new->cost_b = 0;
 	new->next = NULL;
 	return (new);
 }
