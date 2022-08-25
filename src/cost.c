@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:28:26 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 00:08:51 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 16:57:58 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		absolute_cost(t_struct *node)
+/*
+ *	Calculates the absolute cost of moving an element to the top
+ *	of the stack
+ */
+int	absolute_cost(t_struct *node)
 {
 	int			cost_a;
 	int			cost_b;

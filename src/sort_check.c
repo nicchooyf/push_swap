@@ -6,13 +6,17 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:37:20 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/23 19:24:04 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 19:05:16 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_sorted(t_struct *stack)
+/*
+ *	Checks to see if the given stack is sorted
+ *	based on the assigned indices 
+ */
+int	is_sorted(t_struct *stack)
 {
 	t_struct	*tmp;
 
@@ -26,6 +30,10 @@ int is_sorted(t_struct *stack)
 	return (1);
 }
 
+/*
+ *	Checks if there are any indices within the 
+ *	given stack that are less than half of the stack size
+ */
 int	check_index(t_struct *stack, int half)
 {
 	t_struct	*tmp;

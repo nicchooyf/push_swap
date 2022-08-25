@@ -6,11 +6,25 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:44:26 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/23 18:33:41 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 17:05:20 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+ *	Checks for INT_MIN <= arg <= INT_MAX
+ */
+int	check_num(char *arg)
+{
+	long long int	nbr;
+
+	nbr = ft_atoi(arg);
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		return (0);
+	else
+		return (1);
+}
 
 /*
  *	Checks each argument for invalid inputs
@@ -37,5 +51,5 @@ int	check_arg(char *arg)
 		else
 			return (0);
 	}
-	return (1);
+	return (check_num(arg));
 }

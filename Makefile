@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+         #
+#    By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 10:54:07 by nchoo             #+#    #+#              #
-#    Updated: 2022/08/24 22:01:10 by nchoo            ###   ########.fr        #
+#    Updated: 2022/08/25 16:55:53 by nchoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,7 @@ SRC_FILES		=	main.c \
 					do_sort.c \
 					push.c \
 					position.c \
-					cost.c \
-					test.c
+					cost.c
 SRC_DIR			=	src
 SRC				=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ_FILES		=	$(SRC_FILES:%.c=%.o)

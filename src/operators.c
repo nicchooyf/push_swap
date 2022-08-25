@@ -6,13 +6,16 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:41:51 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/23 21:46:00 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 19:19:45 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(t_struct **stack, int c)
+/*
+ *	Swaps the first two indicies of a given stack
+ */
+void	swap(t_struct **stack, int c)
 {
 	t_struct	*tmp;
 	t_struct	*next;
@@ -29,7 +32,11 @@ void swap(t_struct **stack, int c)
 		ft_printf("sb\n");
 }
 
-void rotate(t_struct **stack, int c)
+/*
+ *	Rotates a given stack, pushing the top element to
+ *	the back of the stack
+ */
+void	rotate(t_struct **stack, int c)
 {
 	t_struct	*tmp;
 	t_struct	*tail;
@@ -48,14 +55,17 @@ void rotate(t_struct **stack, int c)
 		ft_printf("rb\n");
 }
 
-
-void reverse_rotate(t_struct **stack, int c)
+/*
+ *	Reverse rotates a given stack, pushing the last element
+ *	to the front of the stack
+ */
+void	reverse_rotate(t_struct **stack, int c)
 {
 	t_struct	*tmp;
 	t_struct	*tail;
 
 	if (!(*stack))
-		return	;
+		return ;
 	tail = list_last(*stack);
 	tmp = *stack;
 	while (tmp->next->next)
@@ -68,4 +78,24 @@ void reverse_rotate(t_struct **stack, int c)
 		ft_printf("rra\n");
 	else if (c == 'b')
 		ft_printf("rrb\n");
+}
+
+/*
+ *	Turns RA and RB to RR
+ */
+void	do_rr(t_struct **stack_a, t_struct **stack_b)
+{
+	rotate(stack_a, 'c');
+	rotate(stack_b, 'c');
+	ft_printf("rr\n");
+}
+
+/*
+ *	Turns RRA and RRB to RRR
+ */
+void	do_rrr(t_struct **stack_a, t_struct **stack_b)
+{
+	reverse_rotate(stack_a, 'c');
+	reverse_rotate(stack_b, 'c');
+	ft_printf("rrr\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:35:24 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 00:20:11 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 19:16:23 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
  *
  *	If 'pa', resets list members unused in stack a
  */
-void push(t_struct **src, t_struct **des, int c)
+void	push(t_struct **src, t_struct **des, int c)
 {
 	t_struct	*tmp;
-	
-	tmp =	remove_front(src);
+
+	tmp = remove_front(src);
 	if (c == 'a')
 	{
 		tmp->target_pos = 0;
@@ -46,7 +46,7 @@ void push(t_struct **src, t_struct **des, int c)
  *	When no indices are bigger than half ot he stack size,
  *	pushes all
  */
-void smart_push(t_struct **stack_a, t_struct **stack_b, int	size)
+void	smart_push(t_struct **stack_a, t_struct **stack_b, int size)
 {
 	t_struct	*tmp;
 	int			half;
@@ -70,12 +70,63 @@ void smart_push(t_struct **stack_a, t_struct **stack_b, int	size)
 	}
 }
 
+/*
+ *	When both cost_a and cost_b are positive, both need to be rotated
+ *
+ *	Similarly when both cost_a and cost_b are negatie, both need to be
+ *	reverse rotated
+ */
+void	check_rr_or_rrr(t_struct *tmp, t_struct **stack_a, t_struct **stack_b)
+{
+	while (tmp->cost_a > 0 && tmp->cost_b > 0)
+	{
+		do_rr(stack_a, stack_b);
+		tmp->cost_a--;
+		tmp->cost_b--;
+	}
+	while (tmp->cost_a < 0 && tmp->cost_b < 0)
+	{
+		do_rrr(stack_a, stack_b);
+		tmp->cost_a++;
+		tmp->cost_b++;
+	}
+}
+
+/*
+ *	Pushes the element with the cheapest absolute cost to 
+ *	the top of the stack
+ */
+void	cheapest_to_top(t_struct **stack, int cost, int c)
+{
+	while (cost != 0)
+	{
+		if (cost > 0)
+		{
+			if (c == 'a')
+				rotate(stack, 'a');
+			else if (c == 'b')
+				rotate(stack, 'b');
+			cost--;
+		}
+		else
+		{
+			if (c == 'a')
+				reverse_rotate(stack, 'a');
+			else if (c == 'b')
+				reverse_rotate(stack, 'b');
+			cost++;
+		}
+	}
+}
+
+/*
+ *	Determines the location of the element with the given 'pos'
+ *	and pushes that to stack_a
+ */
 void	push_cheapest(t_struct **stack_a, t_struct **stack_b, int pos)
 {
 	t_struct	*tmp;
-	int	cost_a;
-	int	cost_b;
-	
+
 	tmp = *stack_b;
 	while (tmp)
 	{
@@ -83,33 +134,8 @@ void	push_cheapest(t_struct **stack_a, t_struct **stack_b, int pos)
 			break ;
 		tmp = tmp->next;
 	}
-	cost_a = tmp->cost_a;
-	cost_b = tmp->cost_b;
-	while (cost_a != 0)
-	{
-		if (cost_a > 0)
-		{
-			rotate(stack_a, 'a');
-			cost_a--;
-		}
-		else
-		{ 
-			reverse_rotate(stack_a, 'a');
-			cost_a++;
-		}
-	}
-	while (cost_b != 0)
-	{
-		if (cost_b > 0)
-		{
-			rotate(stack_b, 'b');
-			cost_b--;
-		}
-		else
-		{ 
-			reverse_rotate(stack_b, 'b');
-			cost_b++;
-		}		
-	}
+	check_rr_or_rrr(tmp, stack_a, stack_b);
+	cheapest_to_top(stack_a, tmp->cost_a, 'a');
+	cheapest_to_top(stack_b, tmp->cost_b, 'b');
 	push(stack_b, stack_a, 'a');
 }

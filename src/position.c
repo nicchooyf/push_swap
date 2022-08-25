@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   position.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 21:23:14 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 00:45:31 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 19:17:18 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	calc_target(t_struct *node, t_struct **stack_a)
 {
 	t_struct	*tmp;
 	int			target_index;
-	
+
 	target_index = INT_MAX;
 	tmp = *stack_a;
 	while (tmp)
@@ -70,7 +70,7 @@ void	calc_target2(t_struct *node, t_struct **stack_a)
 {
 	t_struct	*tmp;
 	int			target_index;
-	
+
 	target_index = INT_MAX;
 	tmp = *stack_a;
 	while (tmp)

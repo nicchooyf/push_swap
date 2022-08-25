@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:01:37 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/24 16:19:33 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 19:26:46 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+ *	Returns the size of a given stack
+ */
 int	get_size(t_struct *stack)
 {
 	t_struct	*tmp;
@@ -27,6 +30,36 @@ int	get_size(t_struct *stack)
 		size++;
 	}
 	return (size);
+}
+
+/*
+ *	Allocates each argument into a new node while
+ *	checking their validity, free-ing the list if an
+ *	argument is invalid
+ *
+ *	Calls the function split_arg if there are only 2 arguments
+ */
+t_struct	*fill_stack(int ac, char **av)
+{
+	t_struct	*head;
+	t_struct	*tmp;
+	int			i;
+
+	i = 0;
+	head = NULL;
+	if (ac == 2)
+		return (split_arg(av[1]));
+	while (++i < ac)
+	{
+		if (check_arg(av[i]) != 1)
+		{
+			free_list(head);
+			return (NULL);
+		}
+		tmp = new_node(ft_atoi(av[i]));
+		add_back(&head, tmp);
+	}
+	return (head);
 }
 
 /*
@@ -66,6 +99,10 @@ t_struct	*assign_index(t_struct *stack, int index)
 	return (head);
 }
 
+/*
+ *	Splits a string of arguments into individual subarrays of
+ *	individual arguments
+ */
 t_struct	*split_arg(char *s)
 {
 	t_struct	*head;
@@ -80,12 +117,14 @@ t_struct	*split_arg(char *s)
 	{
 		if (!check_arg(arg[i]))
 		{
-			free_list(&head);
+			free_list(head);
 			return (NULL);
 		}
 		tmp = new_node(ft_atoi(arg[i]));
+		free(arg[i]);
 		add_back(&head, tmp);
 		i++;
 	}
+	free(arg);
 	return (head);
 }

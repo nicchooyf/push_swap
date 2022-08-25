@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 09:51:34 by nchoo             #+#    #+#             */
-/*   Updated: 2022/07/06 15:23:41 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 14:26:50 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static int	is_space(char c)
 		return (0);
 }
 
-int	ft_atoi(const char *str)
+long long int	ft_atoi(const char *str)
 {
-	int		i;
-	long	res;
-	int		neg;
+	int				i;
+	long long int	res;
+	int				neg;
 
 	i = 0;
 	res = 0;
@@ -41,10 +41,6 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = (res * 10) + (str[i] - 48);
-		if (res * neg > 2147483647)
-			return (-1);
-		if (res * neg < -2147483648)
-			return (0);
 		i++;
 	}
 	return (neg * res);
