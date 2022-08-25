@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 17:01:37 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 19:26:46 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 23:23:25 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
  *	Returns the size of a given stack
  */
-int	get_size(t_struct *stack)
+int	get_size_b(t_struct *stack)
 {
 	t_struct	*tmp;
 	int			size;

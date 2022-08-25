@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   bonus_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/05 04:19:30 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 22:44:42 by nchoo            ###   ########.fr       */
+/*   Created: 2022/08/25 21:59:46 by nchoo             #+#    #+#             */
+/*   Updated: 2022/08/25 23:21:15 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "push_swap.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <unistd.h>
-# include <stdint.h>
+int main(int ac, char **av)
+{
+	t_struct	*stack_a;
+	t_struct	*stack_b;
+	t_struct	*tmp;
+	
+	if (ac == 1)
+		return (0);
+	stack_a = fill_stack_b(ac, av);
+	stack_b = NULL;
+	stack_a = assign_index_b(stack_a, get_size_b(stack_a));
+	if (!stack_a)
+		return (write(2, "Error\n", 6));
+	// do_check(stacks);
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
-
-# ifndef FD_SIZE
-#  define FD_SIZE 1024
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_strdup(char *src);
-void	*ft_memset(void *str, int c, size_t n);
-void	*ft_calloc(size_t n, size_t size);
-
-#endif
+	
+	tmp = stack_a;
+	while (tmp)
+	{
+		ft_printf("%d\n", tmp->value);
+		tmp = tmp->next;
+	}
+}

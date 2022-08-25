@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 16:55:09 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 19:27:59 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/25 19:42:16 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	main(int ac, char **av)
 	int			size;
 
 	if (ac < 2)
-		return (ft_printf("Error!"));
+		return (write(2, "Error\n", 6));
 	stack_a = fill_stack(ac, av);
 	stack_b = NULL;
 	size = get_size(stack_a);
 	stack_a = assign_index(stack_a, size + 1);
 	if (!stack_a)
-		return (ft_printf("Error!\n"));
+		return (write(2, "Error\n", 6));
 	do_sort(&stack_a, &stack_b, size);
 	free_list(stack_a);
-	system("leaks push_swap");
+	// system("leaks push_swap");
 }
