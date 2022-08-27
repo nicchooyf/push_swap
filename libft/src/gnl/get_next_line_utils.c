@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 04:20:44 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/08 15:43:25 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/27 18:11:02 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -42,7 +42,7 @@ char	*ft_strdup(char *src)
 	return (p);
 }
 
-char	*ft_strjoin(char *s, char *s2)
+char	*ft_strjoin(const char *s, const char *s2)
 {
 	int		n;
 	char	*tmp;
@@ -63,7 +63,7 @@ char	*ft_strjoin(char *s, char *s2)
 	return (p);
 }
 
-char	*ft_strchr(char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	c %= 128;
 	if (c == 0)
@@ -77,7 +77,7 @@ char	*ft_strchr(char *str, int c)
 	return (NULL);
 }
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*p;
 	size_t	i;
