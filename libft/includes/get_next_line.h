@@ -6,14 +6,14 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 04:19:30 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/27 18:09:41 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/27 18:19:19 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#include "libft.h"
+# include "libft.h"
 
 # include <stdio.h>
 # include <stdlib.h>
