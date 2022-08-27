@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:35:24 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 19:16:23 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/27 17:33:54 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,17 @@ void	smart_push(t_struct **stack_a, t_struct **stack_b, int size)
  *	Similarly when both cost_a and cost_b are negatie, both need to be
  *	reverse rotated
  */
-void	check_rr_or_rrr(t_struct *tmp, t_struct **stack_a, t_struct **stack_b)
+void	check_both(t_struct *tmp, t_struct **stack_a, t_struct **stack_b)
 {
 	while (tmp->cost_a > 0 && tmp->cost_b > 0)
 	{
-		do_rr(stack_a, stack_b);
+		do_rr(stack_a, stack_b, 1);
 		tmp->cost_a--;
 		tmp->cost_b--;
 	}
 	while (tmp->cost_a < 0 && tmp->cost_b < 0)
 	{
-		do_rrr(stack_a, stack_b);
+		do_rrr(stack_a, stack_b, 1);
 		tmp->cost_a++;
 		tmp->cost_b++;
 	}
@@ -134,7 +134,7 @@ void	push_cheapest(t_struct **stack_a, t_struct **stack_b, int pos)
 			break ;
 		tmp = tmp->next;
 	}
-	check_rr_or_rrr(tmp, stack_a, stack_b);
+	check_both(tmp, stack_a, stack_b);
 	cheapest_to_top(stack_a, tmp->cost_a, 'a');
 	cheapest_to_top(stack_b, tmp->cost_b, 'b');
 	push(stack_b, stack_a, 'a');

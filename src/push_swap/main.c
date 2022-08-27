@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 16:55:09 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 19:42:16 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/27 17:30:04 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ int	main(int ac, char **av)
 		return (write(2, "Error\n", 6));
 	do_sort(&stack_a, &stack_b, size);
 	free_list(stack_a);
-	// system("leaks push_swap");
 }

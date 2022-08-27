@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:41:51 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 19:19:45 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/27 15:28:08 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,21 @@ void	reverse_rotate(t_struct **stack, int c)
 /*
  *	Turns RA and RB to RR
  */
-void	do_rr(t_struct **stack_a, t_struct **stack_b)
+void	do_rr(t_struct **stack_a, t_struct **stack_b, int n)
 {
 	rotate(stack_a, 'c');
 	rotate(stack_b, 'c');
-	ft_printf("rr\n");
+	if (n == 1)
+		ft_printf("rr\n");
 }
 
 /*
  *	Turns RRA and RRB to RRR
  */
-void	do_rrr(t_struct **stack_a, t_struct **stack_b)
+void	do_rrr(t_struct **stack_a, t_struct **stack_b, int n)
 {
 	reverse_rotate(stack_a, 'c');
 	reverse_rotate(stack_b, 'c');
-	ft_printf("rrr\n");
+	if (n == 1)
+		ft_printf("rrr\n");
 }

@@ -6,32 +6,30 @@
 /*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 21:59:46 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/25 23:21:15 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/27 17:29:40 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_struct	*stack_a;
 	t_struct	*stack_b;
-	t_struct	*tmp;
-	
+	int			ok;
+
 	if (ac == 1)
 		return (0);
-	stack_a = fill_stack_b(ac, av);
+	stack_a = fill_stack(ac, av);
 	stack_b = NULL;
-	stack_a = assign_index_b(stack_a, get_size_b(stack_a));
+	stack_a = assign_index(stack_a, get_size(stack_a) + 1);
 	if (!stack_a)
-		return (write(2, "Error\n", 6));
-	// do_check(stacks);
-
-	
-	tmp = stack_a;
-	while (tmp)
-	{
-		ft_printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
+		exit_error();
+	if (!is_sorted(stack_a))
+		do_check(&stack_a, &stack_b);
+	ok = is_sorted(stack_a);
+	if (ok == 1)
+		exit_ok();
+	else
+		exit_ko();
 }
