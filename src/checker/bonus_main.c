@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 21:59:46 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/28 10:00:26 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 16:44:13 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int ac, char **av)
 {
 	t_struct	*stack_a;
 	t_struct	*stack_b;
-	int			ok;
 
 	if (ac == 1)
 		return (0);
@@ -26,8 +25,7 @@ int	main(int ac, char **av)
 	if (!stack_a)
 		exit_error();
 	do_check(&stack_a, &stack_b);
-	ok = is_sorted(stack_a);
-	if (ok == 1)
+	if (is_sorted(stack_a) && !stack_b)
 		exit_ok();
 	else
 		exit_ko();

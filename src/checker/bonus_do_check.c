@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:32:40 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/28 10:04:09 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 16:53:36 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
  *	Returns KO when the # of operations are past the
  *	accepted maximum based on the subject's grading
  */
-int	check_operations(int i, int size, t_struct *stack)
+int	check_operations(int i, int size)
 {
-	if (size == 3 && i == 2 && !is_sorted(stack))
+	if (size == 3 && i == 2)
 		return (0);
-	if (size == 5 && i == 12 && !is_sorted(stack))
+	if (size == 5 && i == 12)
 		return (0);
 	if (size <= 100 && i > 1500)
 		return (0);
@@ -76,8 +76,8 @@ void	do_check(t_struct **stack_a, t_struct **stack_b)
 	{
 		do_operation(stack_a, stack_b, op);
 		i++;
-		if (!check_operations(i, size, *stack_a))
-			exit_ko();
+		if (!check_operations(i, size))
+			return ;
 		if (ft_strncmp(op, "\n", 1) == 0)
 		{
 			free(op);

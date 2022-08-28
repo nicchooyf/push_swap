@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:35:24 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/27 17:33:54 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 16:56:44 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	push(t_struct **src, t_struct **des, int c)
 {
 	t_struct	*tmp;
 
+	if (!*src)
+		return ;
 	tmp = remove_front(src);
 	if (c == 'a')
 	{
