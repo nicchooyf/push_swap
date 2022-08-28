@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 04:19:30 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/27 18:19:19 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 17:51:08 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,5 @@
 # endif
 
 char	*get_next_line(int fd);
-// char	*ft_strdup(char *src);
-// void	*ft_memset(void *str, int c, size_t n);
-// void	*ft_calloc(size_t n, size_t size);
 
 #endif
