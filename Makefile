@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+         #
+#    By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/15 10:54:07 by nchoo             #+#    #+#              #
-#    Updated: 2022/08/27 16:40:26 by nchoo            ###   ########.fr        #
+#    Updated: 2022/08/28 10:21:04 by nchoo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,13 +34,6 @@ SRC_DIR			=	src/push_swap
 MAIN_SRC		=	src/push_swap/main.c
 SRC				=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 BONUS_SRC		=	$(addprefix $(BONUS_SRC_DIR)/, $(BONUS_SRC_FILES))
-MAIN_OBJ_FILE	=	$(MAIN_FILE:%.c=%.o)
-OBJ_FILES		=	$(SRC_FILES:%.c=%.o)
-BONUS_OBJ_FILES	=	$(BONUS_SRC_FILES:%.c=%.o)
-OBJ_DIR			=	obj
-MAIN_OBJ		=	$(addprefix $(OBJ_DIR)/, $(MAIN_OBJ_FILE))
-OBJ				=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
-BONUS_OBJ		=	$(addprefix $(OBJ_DIR)/, $(BONUS_OBJ_FILES))
 RM				=	rm
 LIBFT			=	./libft/libft.a
 INCLUDES		=	-I includes
@@ -64,6 +57,6 @@ fclean: 	clean
 			@$(RM) -f $(NAME)
 			@$(RM) -f $(BONUS)
 		
-re: 		fclean all
+re: 		fclean all bonus
 
 .PHONY:		all bonus clean fclean re
