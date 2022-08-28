@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:04:33 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/27 17:34:35 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 09:28:59 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void		calculate_cost(t_struct **stack_a, t_struct **stack_b);
 /* ************************************************************************** */
 
 /* --- bonus_do_check.c --- */
+int			check_operations(int i, int size, t_struct *stack);
 void		do_operation(t_struct **stack_a, t_struct **stack_b, char *s);
 void		do_check(t_struct **stack_a, t_struct **stack_b);
 

@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_do_check.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:32:40 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/27 17:28:31 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 09:29:15 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_operations(int i, int size, t_struct *stack)
+{
+	if (size == 3 && i == 2 && !is_sorted(stack))
+		return (0);
+	if (size == 5 && i == 12 && !is_sorted(stack))
+		return (0);
+	if (size <= 100 && i > 1500)
+		return (0);
+	if (size <= 500 && i > 11500)
+		return (0);
+	return (1);
+}
 
 void	do_operation(t_struct **stack_a, t_struct **stack_b, char *s)
 {
@@ -53,8 +66,7 @@ void	do_check(t_struct **stack_a, t_struct **stack_b)
 		i++;
 		if (is_sorted(*stack_a) && !*stack_b)
 			exit_ok();
-		if ((size == 3 && i == 2 && !is_sorted(*stack_a))
-			|| (size == 5 && i == 12 && !is_sorted(*stack_a)))
+		if (!check_operations(i, size, *stack_a))
 			exit_ko();
 		if (ft_strncmp(op, "\n", 1) == 0)
 		{
