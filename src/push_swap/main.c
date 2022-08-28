@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 16:55:09 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/28 10:18:13 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 11:06:08 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	size = get_size(stack_a);
 	stack_a = assign_index(stack_a, size + 1);
 	if (!stack_a)
-		return (write(2, "Error\n", 6));
+		exit_error();
 	do_sort(&stack_a, &stack_b, size);
 	free_list(stack_a);
 	// system("leaks push_swap");
