@@ -6,12 +6,16 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:32:40 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/28 09:29:15 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 10:04:09 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+ *	Returns KO when the # of operations are past the
+ *	accepted maximum based on the subject's grading
+ */
 int	check_operations(int i, int size, t_struct *stack)
 {
 	if (size == 3 && i == 2 && !is_sorted(stack))
@@ -25,6 +29,11 @@ int	check_operations(int i, int size, t_struct *stack)
 	return (1);
 }
 
+/*
+ *	Runs the corresponding operation based on user's input
+ *
+ *	Takes gnl's output and compares using strcmp
+ */
 void	do_operation(t_struct **stack_a, t_struct **stack_b, char *s)
 {
 	if (ft_strncmp(s, "sa", ft_strlen(s) - 1) == 0)
@@ -51,6 +60,9 @@ void	do_operation(t_struct **stack_a, t_struct **stack_b, char *s)
 		exit_error();
 }
 
+/*
+ *	Makes use of get_next_line to read the stdin (fd == 0)
+ */
 void	do_check(t_struct **stack_a, t_struct **stack_b)
 {
 	char	*op;
@@ -64,8 +76,6 @@ void	do_check(t_struct **stack_a, t_struct **stack_b)
 	{
 		do_operation(stack_a, stack_b, op);
 		i++;
-		if (is_sorted(*stack_a) && !*stack_b)
-			exit_ok();
 		if (!check_operations(i, size, *stack_a))
 			exit_ko();
 		if (ft_strncmp(op, "\n", 1) == 0)

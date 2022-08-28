@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operators.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:41:51 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/27 15:28:08 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 09:58:39 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	reverse_rotate(t_struct **stack, int c)
  */
 void	do_rr(t_struct **stack_a, t_struct **stack_b, int n)
 {
+	if ((get_size(*stack_a) < 2) || (get_size(*stack_b) < 2))
+		return ;
 	rotate(stack_a, 'c');
 	rotate(stack_b, 'c');
 	if (n == 1)
@@ -96,6 +98,8 @@ void	do_rr(t_struct **stack_a, t_struct **stack_b, int n)
  */
 void	do_rrr(t_struct **stack_a, t_struct **stack_b, int n)
 {
+	if ((get_size(*stack_a) < 2) || (get_size(*stack_b) < 2))
+		return ;
 	reverse_rotate(stack_a, 'c');
 	reverse_rotate(stack_b, 'c');
 	if (n == 1)

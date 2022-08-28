@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 16:34:43 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/27 17:29:01 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 09:51:22 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,5 @@ void	exit_ok(void)
 void	exit_ko(void)
 {
 	ft_printf("KO\n");
-	exit(0);
-}
-
-void	exit_error(void)
-{
-	write(2, "Error\n", 6);
 	exit(0);
 }

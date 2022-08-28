@@ -6,7 +6,7 @@
 /*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 17:04:33 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/28 09:28:59 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 09:51:26 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int			is_sorted(t_struct *stack);
 int			check_index(t_struct *stack, int half);
 
 /* --- error.c --- */
+void		exit_error(void);
 int			check_arg(char *arg);
 int			check_num(char *arg);
 
@@ -103,6 +104,5 @@ void		do_check(t_struct **stack_a, t_struct **stack_b);
 /* --- bonus_error.c --- */
 void		exit_ok(void);
 void		exit_ko(void);
-void		exit_error(void);
 
 #endif

@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nchoo <nchoo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: nchoo <nchoo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:44:26 by nchoo             #+#    #+#             */
-/*   Updated: 2022/08/27 17:25:32 by nchoo            ###   ########.fr       */
+/*   Updated: 2022/08/28 09:49:14 by nchoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+ *	Exits the program and prints "Error"
+ *	in the stderr
+ */
+void	exit_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(0);
+}
 
 /*
  *	Checks for INT_MIN <= arg <= INT_MAX
